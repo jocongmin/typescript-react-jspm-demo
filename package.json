@@ -1,0 +1,165 @@
+{
+  "name": "react-redux-typescript-starter-kit",
+  "version": "0.11.1",
+  "description": "Futuristic, production-ready development environment for building Component-Driven, Flux Single Page Applications with React, Redux and TypeScript - powered by JSPM (SystemJS with Hot-Reload & Rollup).",
+  "main": "server.js",
+  "author": "Piotr Witek <piotrek.witek@gmail.com> (http://piotrwitek.github.io/)",
+  "homepage": "https://github.com/piotrwitek/react-redux-typescript-starter-kit",
+  "repository": "https://github.com/piotrwitek/react-redux-typescript-starter-kit.git",
+  "bugs": "https://github.com/piotrwitek/react-redux-typescript-starter-kit/issues",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "jspm install && npm run build:dev",
+    "clean": "node scripts/clean.js",
+    "init:deploy": "node scripts/init.js deploy",
+    "deploy": "cd dist && git checkout gh-pages && git add --all && git commit -m \"New Release\" && git push",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint && npm test",
+    "preversion": "npm run lint && npm test",
+    "unbundle": "rimraf temp/vendor.dev.js",
+    "build": "npm run build:app && npm run build:vendor",
+    "build:app": "node scripts/build.js app",
+    "build:vendor": "node scripts/build.js vendor",
+    "build:dev": "node scripts/build.js dev",
+    "build:debug": "node scripts/build.js debug",
+    "bad": "npm run build:app && npm run deploy",
+    "bvd": "npm run build:vendor && npm run deploy",
+    "lint": "tslint ./src/**/*.ts[x]",
+    "test": "jspm run src/test-runner | faucet",
+    "tsc": "tsc -p src",
+    "tsc:watch": "tsc -p src -w",
+    "regenerator": "node scripts/regenerator.js",
+    "build:regenerator": "npm run build:app && npm run regenerator"
+  },
+  "devDependencies": {
+    "@types/blue-tape": "^0.1.30",
+    "@types/classnames": "^0.0.31",
+    "@types/react": "^0.14.39",
+    "@types/react-dom": "^0.14.11",
+    "@types/react-redux": "^4.4.32",
+    "@types/react-router": "^2.0.37",
+    "@types/react-router-redux": "^4.0.34",
+    "@types/redux": "^3.6.31",
+    "@types/redux-actions": "^0.8.30",
+    "@types/tape": "^4.2.28",
+    "@types/whatwg-fetch": "^0.0.32",
+    "faucet": "^0.0.1",
+    "husky": "^0.11.8",
+    "jspm": "^0.17.0-beta.31",
+    "jspm-hmr": "^0.5.0",
+    "path-is-absolute": "^1.0.1",
+    "regenerator": "^0.8.46",
+    "rimraf": "^2.5.4",
+    "shelljs": "^0.7.5",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3"
+  },
+  "jspm": {
+    "name": "app",
+    "main": "app.tsx",
+    "dependencies": {
+      "classnames": "npm:classnames@^2.2.5",
+      "csjs": "npm:csjs@^1.0.6",
+      "insert-css": "npm:insert-css@^1.0.0",
+      "jquery": "npm:jquery@^3.1.1",
+      "path-is-absolute": "npm:path-is-absolute@^1.0.1",
+      "react-redux": "npm:react-redux@^4.4.5",
+      "react-router": "npm:react-router@2.8.1",
+      "react-router-redux": "npm:react-router-redux@^4.0.6",
+      "react-slick": "npm:react-slick@^0.14.5",
+      "redux-actions": "npm:redux-actions@^0.11.0",
+      "seamless-immutable": "npm:seamless-immutable@^6.3.0",
+      "slick-carousel": "npm:slick-carousel@^1.6.0",
+      "whatwg-fetch": "npm:whatwg-fetch@^1.0.0",
+      "zepto": "npm:zepto@^1.2.0"
+    },
+    "devDependencies": {
+      "blue-tape": "npm:blue-tape@^0.2.0",
+      "css": "github:systemjs/plugin-css@^0.1.32",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.2.7",
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0"
+    },
+    "peerDependencies": {
+      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
+      "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
+      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
+      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+      "domain": "npm:jspm-nodelibs-domain@^0.2.0",
+      "events": "npm:jspm-nodelibs-events@^0.2.0",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "http": "npm:jspm-nodelibs-http@^0.2.0",
+      "https": "npm:jspm-nodelibs-https@^0.2.0",
+      "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "os": "npm:jspm-nodelibs-os@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "process": "npm:jspm-nodelibs-process@^0.2.0",
+      "react": "npm:react@^15.3.2",
+      "react-dom": "npm:react-dom@^15.3.2",
+      "redux": "npm:redux@^3.6.0",
+      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
+      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
+      "url": "npm:jspm-nodelibs-url@^0.2.0",
+      "util": "npm:jspm-nodelibs-util@^0.2.0",
+      "vm": "npm:jspm-nodelibs-vm@^0.2.0",
+      "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
+    },
+    "overrides": {
+      "github:socketio/socket.io-client@1.5.1": {
+        "main": "socket.io.js"
+      },
+      "npm:browserify-zlib@0.1.4": {
+        "dependencies": {
+          "readable-stream": "^2.0.2",
+          "pako": "~0.2.0"
+        },
+        "map": {
+          "_stream_transform": "readable-stream/transform"
+        }
+      },
+      "npm:debug@2.2.0": {
+        "main": "browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./browser.js": {
+            "node": "./node.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:inherits@2.0.3": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:jquery@3.1.1": {
+        "format": "amd"
+      },
+      "npm:lodash@4.16.4": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:ms@0.7.1": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
+      },
+      "npm:typescript@2.0.6": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
+        }
+      }
+    }
+  }
+}

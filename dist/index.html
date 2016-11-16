@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>init page</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0, minimun-scale=1.0,user-scalable=no;">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <script type="text/javascript" src="static/js/auto_rem.js"></script>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <!-- body bottom scripts -->
+  <!-- loading-app:start -->
+  <script src="system.js"></script>
+  <script src="jspm.config.js"></script>
+  <script src="vendor.prod.js"></script>
+  <script>
+    // load main module of your app with SystemJS
+    SystemJS.import('app.js');
+  </script>
+  <!-- loading-app:end -->
+</body>
+
+</html>
